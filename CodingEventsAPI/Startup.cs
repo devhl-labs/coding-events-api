@@ -46,7 +46,7 @@ namespace CodingEventsAPI
             services.AddScoped<ICodingEventTagService, CodingEventTagService>();
 
             // authenticate using JWT Bearer
-            // TODO: insert values for the JWTOptions in appsettings.json 
+            // TODO: insert values for the JWTOptions in appsettings.json
             services
               .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
               .AddJwtBearer(options => Configuration.Bind("JWTOptions", options));
@@ -69,18 +69,18 @@ namespace CodingEventsAPI
                   options.SwaggerDoc(
               "v1",
               new OpenApiInfo
-                  {
-                      Version = "v1",
-                      Title = "Coding Events API",
-                      Description = "REST API for managing Coding Events"
-                  }
+              {
+                  Version = "v1",
+                  Title = "Coding Events API",
+                  Description = "REST API for managing Coding Events"
+              }
             );
 
-            // meta annotations for endpoints in UI
-            options.EnableAnnotations();
+                  // meta annotations for endpoints in UI
+                  options.EnableAnnotations();
 
-            // req/res body examples
-            options.ExampleFilters();
+                  // req/res body examples
+                  options.ExampleFilters();
               }
             );
 
@@ -119,7 +119,7 @@ namespace CodingEventsAPI
               options =>
               {
                   options.RoutePrefix = ""; // root path of the server, "/", will display swagger docs
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Coding Events API Documentation");
+                  options.SwaggerEndpoint("/swagger/v1/swagger.json", "Coding Events API Documentation");
               }
             );
 
@@ -130,4 +130,3 @@ namespace CodingEventsAPI
         }
     }
 }
-
